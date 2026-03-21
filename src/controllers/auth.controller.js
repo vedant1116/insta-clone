@@ -29,7 +29,8 @@ async function registrationController(req,res){
         password: hash
     })
     const token = jwt.sign({
-        id: user._id
+        id: user._id,
+        username:user.username
     }, process.env.JWT_SECRET, { expiresIn: "1d" }
     )
 
@@ -55,7 +56,7 @@ async function loginController(req,res){
    * 
    * *email
    * *password
-   */
+   */                  
 
   const user= await userModel.findOne(
     {
@@ -85,7 +86,8 @@ if(!isPasswordValid){
 }
 const token =jwt.sign(
     {
-        id:user._id
+        id:user._id,
+        username:user.username
     },process.env.JWT_SECRET
 )
 
@@ -102,7 +104,7 @@ res.status(200).json({
 })
 }
 
-module.exports={
+module.exports={    
     registrationController,
     loginController,
 }
