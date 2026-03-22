@@ -46,5 +46,7 @@ postRouter.post('/like/:postId',identifyUser,postController.likePostController)
 
 postRouter.post('/unlike/:postId',identifyUser,postController.unlikePostController)
 
+
+
 module.exports=postRouter
 

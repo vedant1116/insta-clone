@@ -9,7 +9,8 @@ const userController=require('../controllers/user.controller')
  */
 
 userRouter.post('/follow/:username',identifyUser,userController.followUserController)
-
+userRouter.put('/follow/accept/:id',identifyUser,userController.acceptFollowRequest)
+userRouter.put('/follow/reject/:id',identifyUser,userController.rejectFollowRequest)
 userRouter.post('/unfollow/:username',identifyUser,userController.unfollowUserController)
 
 
